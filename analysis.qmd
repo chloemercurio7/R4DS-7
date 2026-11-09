@@ -13,6 +13,5 @@ execute:
 library(tidyverse)
 library(arrow)
 ```
-```{r}
-arrow::parquet_schema("data/daily_prices.parquet")
-```
+`''
+arrow::open_dataset("data/daily_prices.parquet")
