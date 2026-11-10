@@ -126,19 +126,6 @@ volume_usd: double</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  category_id             category_name           era_introduced description    
-  &lt;chr&gt;                   &lt;chr&gt;                   &lt;chr&gt;          &lt;chr&gt;          
-1 bitcoin                 Bitcoin                 2009           The original c…
-2 smart-contract-platform Smart Contract Platform 2015           Programmable b…
-3 stablecoin              Stablecoin              2015           Tokens pegged …
-4 defi                    DeFi                    2020           Decentralized …
-5 meme-coin               Meme Coin               2013           Coins driven p…
-6 exchange-token          Exchange Token          2017           Utility tokens…</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   field       missing_n missing_pct
   &lt;chr&gt;           &lt;int&gt;       &lt;dbl&gt;
@@ -188,18 +175,18 @@ volume_usd: double</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
-   date_raw   coin_id  price_usd market_cap_usd market_cap_str   volume_usd
-   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
- 1 2022-06-02 ada        0.587     19598863572. $19.6B           608690095.
- 2 2021-07-15 usdc       1.00      26442507071. $26.44B          963988105.
- 3 2025-06-27 busd       1.00         57875970. $57.88M                793.
- 4 2020-08-10 ht         4.71       2355250612. $2.36B            29563835.
- 5 2021-01-17 doge       0.00913    1167315374. $1.17B            44152084.
- 6 2020-04-28 mkr      336.          337649678. &lt;NA&gt;                836432.
- 7 2024-03-25 eth     3596.       431793897935. $431.79B        8136770604.
- 8 2022-08-02 xrp        0.373     37303774203. $37.3B           527016960.
- 9 2023-10-04 ada        0.260      8932287859. $8.93B            65738662.
-10 2021-05-27 usdt       1.00      62504525060. $62.5B         44756302777.</code></pre>
+   date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
+   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 2023-07-14 ht          2.74     1368065037. $1.37B            7551119.
+ 2 2024-03-18 crv         0.658    1377186729. $1.38B           73584319.
+ 3 2020-10-22 usdc        1.000    2795272991. $2.8B           152061187.
+ 4 2021-12-30 xrp         0.839   83842148498. $83.84B         871197812.
+ 5 2019-05-26 usdt        1.01     3391713417. $3.39B         3599928027.
+ 6 2019-04-07 link        0.577     577427504. $577.43M          6063991.
+ 7 2020-06-13 ht          4.30     2148264485. $2.15B            9616644.
+ 8 2022-11-29 ht          6.98     3489546323. $3.49B           18643604.
+ 9 2021-12-04 usdc        1.00    39865514370. $39.87B        4704341036.
+10 2021-02-18 ltc       227.      15189925342. $15.19B        1787633972.</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -237,6 +224,15 @@ volume_usd: double</code></pre>
 20 ftt                2.97e 8
 21 ht                 1.83e 8
 22 busd               5.33e 7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/crypto-market-cap-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -316,7 +312,7 @@ volume_usd: double</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/chloemercurio7\.github\.io\/R4DS-7\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
