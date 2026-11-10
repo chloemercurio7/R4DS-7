@@ -30,8 +30,6 @@ crypto <- prices |>
     categories |> dplyr::rename(category_description = description),
     by = "category_id"
   )
-
-print(crypto)
 ```
 
 ```{r}
