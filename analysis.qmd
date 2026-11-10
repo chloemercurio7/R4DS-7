@@ -96,3 +96,26 @@ crypto |>
   dplyr::arrange(dplyr::desc(avg_market_cap_usd)) |>
   print(n = 22)
 ```
+
+```{r}
+#| label: crypto-market-cap
+#| message: false
+
+crypto_market_cap <- crypto |>
+  group_by(date) |>
+  summarise(
+    total_market_cap = sum(market_cap_usd, na.rm = TRUE)
+  ) |>
+  mutate(
+    market_cap_trillions = total_market_cap / 1e12
+  )
+
+ggplot(crypto_market_cap, aes(x = date, y = market_cap_trillions)) +
+  geom_line() +
+  labs(
+    title = "Total Cryptocurrency Market Capitalization",
+    x = "Date",
+    y = "Market Cap (Trillions of Dollars)"
+  ) +
+  theme_minimal()
+```
