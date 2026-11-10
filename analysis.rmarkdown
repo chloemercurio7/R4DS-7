@@ -1,0 +1,102 @@
+
+---
+title: "Crypto Markets"
+author: "Chloe Mercurio"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(arrow)
+```
+
+```{r}
+print(arrow::open_dataset("data/daily_prices.parquet")$schema)
+```
+
+```{r}
+prices <- arrow::read_parquet("data/daily_prices.parquet")
+metadata <- arrow::read_parquet("data/coin_metadata.parquet")
+metadata <- metadata |>
+  dplyr::mutate(
+    launch_date_parsed = dplyr::coalesce(
+      lubridate::ymd(launch_date, quiet = TRUE),
+      lubridate::mdy(launch_date, quiet = TRUE)
+    )
+  )
+if (anyNA(metadata$launch_date_parsed)) {
+  stop("Some launch dates could not be parsed.")
+}
+categories <- arrow::read_parquet("data/categories.parquet")
+print(categories)
+```
+
+```{r}
+metadata |>
+  dplyr::select(description, launch_date, consensus) |>
+  tidyr::pivot_longer(
+    dplyr::everything(),
+    names_to = "field",
+    values_to = "value",
+    values_transform = list(value = as.character)
+  ) |>
+  dplyr::group_by(field) |>
+  dplyr::summarise(
+    missing_n = sum(is.na(value)),
+    missing_pct = mean(is.na(value)) * 100
+  )
+```
+
+```{r}
+metadata |>
+  dplyr::arrange(launch_date_parsed) |>
+  dplyr::select(coin_id, coin_name, launch_date, launch_date_parsed) |>
+  print(n = 22)
+```
+
+```{r}
+prices |>
+  dplyr::left_join(metadata, by = "coin_id") |>
+  print()
+```
+
+```{r}
+prices |>
+  dplyr::filter(coin_id == "btc") |>
+  dplyr::mutate(date = lubridate::ymd(date_raw)) |>
+  ggplot(aes(x = date, y = price_usd)) +
+  geom_line() +
+  labs(
+    title = "Bitcoin Daily Price",
+    x = "Date",
+    y = "Price (USD)"
+  )
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::collect() |>
+  dplyr::slice_sample(n = 10)
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::select(market_cap_str) |>
+  dplyr::collect() |>
+  dplyr::summarise(missing_pct = mean(is.na(market_cap_str)) * 100)
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::filter(date_raw >= "2025-01-01") |>
+  dplyr::group_by(coin_id) |>
+  dplyr::summarise(avg_market_cap_usd = mean(market_cap_usd, na.rm = TRUE)) |>
+  dplyr::arrange(dplyr::desc(avg_market_cap_usd)) |>
+  dplyr::collect() |>
+  print(n = 22)
+```
+
