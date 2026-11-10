@@ -76,7 +76,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Schema
+date_raw: string
+coin_id: string
+price_usd: double
+market_cap_usd: double
+market_cap_str: string
+volume_usd: double</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
+   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 2020-03-14 btc     5145.       94005928118. $94.01B        5175435700.
+ 2 2024-09-23 dot        4.45      6302265302. $6.3B            61802225.
+ 3 2019-09-29 cro        0.0353    3529647965. $3.53B             296010.
+ 4 2019-06-03 link       0.909      908844730. $908.84M         11576506.
+ 5 2021-02-18 ltc      227.       15189925342. $15.19B        1787633972.
+ 6 2024-12-15 mkr     2022.        1860042218. $1.86B           46707520.
+ 7 2025-03-19 ltc       94.0       7112248974. $7.11B          238499354.
+ 8 2023-07-20 dai        1.000     4254516660. $4.25B           96086328.
+ 9 2022-07-05 aave      60.8        973263735. $973.26M         57391518.
+10 2021-12-02 dai        1.00      8905171656. $8.91B          410513143.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  missing_pct
+        &lt;dbl&gt;
+1        5.23</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 2
+   coin_id avg_market_cap_usd
+   &lt;chr&gt;                &lt;dbl&gt;
+ 1 btc                1.88e12
+ 2 eth                3.47e11
+ 3 xrp                2.22e11
+ 4 usdt               1.71e11
+ 5 bnb                1.05e11
+ 6 usdc               6.60e10
+ 7 doge               2.72e10
+ 8 ada                2.12e10
+ 9 link               1.51e10
+10 cro                1.12e10
+11 bch                9.46e 9
+12 uni                6.79e 9
+13 ltc                6.71e 9
+14 dot                5.10e 9
+15 dai                4.00e 9
+16 aave               3.30e 9
+17 crv                1.22e 9
+18 mkr                6.77e 8
+19 comp               3.86e 8
+20 ftt                2.97e 8
+21 ht                 1.83e 8
+22 busd               5.33e 7</code></pre>
+</div>
+</div>
 
 </main>
 <!-- /main column -->

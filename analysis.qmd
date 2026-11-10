@@ -13,3 +13,30 @@ execute:
 library(tidyverse)
 library(arrow)
 ```
+
+```{r}
+print(arrow::open_dataset("data/daily_prices.parquet")$schema)
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::collect() |>
+  dplyr::slice_sample(n = 10)
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::select(market_cap_str) |>
+  dplyr::collect() |>
+  dplyr::summarise(missing_pct = mean(is.na(market_cap_str)) * 100)
+```
+
+```{r}
+arrow::open_dataset("data/daily_prices.parquet") |>
+  dplyr::filter(date_raw >= "2025-01-01") |>
+  dplyr::group_by(coin_id) |>
+  dplyr::summarise(avg_market_cap_usd = mean(market_cap_usd, na.rm = TRUE)) |>
+  dplyr::arrange(dplyr::desc(avg_market_cap_usd)) |>
+  dplyr::collect() |>
+  print(n = 22)
+```
