@@ -89,19 +89,37 @@ volume_usd: double</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 7
+   coin_id coin_name    symbol category_id     launch_date consensus description
+   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      
+ 1 btc     Bitcoin      BTC    bitcoin         January 3,… Proof of… "Bitcoin i…
+ 2 ltc     Litecoin     LTC    bitcoin         October 7,… proof-of… "Litecoin …
+ 3 bch     Bitcoin Cash BCH    bitcoin         August 1, … POW       "Bitcoin C…
+ 4 eth     Ethereum     ETH    smart-contract… 2015-07-30  Proof of… "Ethereum …
+ 5 bnb     BNB          BNB    smart-contract… July 25, 2… Proof of… "BNB start…
+ 6 ada     Cardano      ADA    smart-contract… 2017-09-29  Proof-of… "Cardano i…
+ 7 dot     Polkadot     DOT    smart-contract… 2020-08-18  Nominate… "Polkadot …
+ 8 link    Chainlink    LINK   smart-contract… September … &lt;NA&gt;      "Chainlink…
+ 9 xrp     XRP          XRP    smart-contract… 2013-02-02  Federate… "XRP is a …
+10 usdt    Tether       usdt   stablecoin      2014-10-06  &lt;NA&gt;      "Tether (U…
+# ℹ 12 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
    date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
    &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1 2020-03-14 btc     5145.       94005928118. $94.01B        5175435700.
- 2 2024-09-23 dot        4.45      6302265302. $6.3B            61802225.
- 3 2019-09-29 cro        0.0353    3529647965. $3.53B             296010.
- 4 2019-06-03 link       0.909      908844730. $908.84M         11576506.
- 5 2021-02-18 ltc      227.       15189925342. $15.19B        1787633972.
- 6 2024-12-15 mkr     2022.        1860042218. $1.86B           46707520.
- 7 2025-03-19 ltc       94.0       7112248974. $7.11B          238499354.
- 8 2023-07-20 dai        1.000     4254516660. $4.25B           96086328.
- 9 2022-07-05 aave      60.8        973263735. $973.26M         57391518.
-10 2021-12-02 dai        1.00      8905171656. $8.91B          410513143.</code></pre>
+ 1 2018-01-25 bch     1633.       27646023082. $27.65B         246370498.
+ 2 2020-11-12 usdt       1.00     18031018656. $18.03B        6690087507.
+ 3 2026-03-22 doge       0.0903   13865489901. $13.87B         308072514.
+ 4 2025-12-16 bch      546.       10903541429. &lt;NA&gt;            107387793.
+ 5 2018-07-04 mkr      554.         554114444. &lt;NA&gt;                 7953.
+ 6 2018-02-10 btc     8530.      143796839807. $143.8B        3791122188.
+ 7 2026-04-04 eth     2064.      250990077125. $250.99B       1230933254.
+ 8 2023-07-02 link       6.53      6528763408. $6.53B           91890111.
+ 9 2021-04-13 ftt       55.4      18778814201. $18.78B         279392119.
+10 2021-03-04 ada        1.11     35561960657. &lt;NA&gt;           2190474416.</code></pre>
 </div>
 </div>
 <div class="cell">

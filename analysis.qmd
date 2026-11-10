@@ -19,6 +19,12 @@ print(arrow::open_dataset("data/daily_prices.parquet")$schema)
 ```
 
 ```{r}
+prices <- arrow::read_parquet("data/daily_prices.parquet")
+metadata <- arrow::read_parquet("data/coin_metadata.parquet")
+print(metadata)
+```
+
+```{r}
 arrow::open_dataset("data/daily_prices.parquet") |>
   dplyr::collect() |>
   dplyr::slice_sample(n = 10)
