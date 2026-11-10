@@ -21,6 +21,16 @@ print(arrow::open_dataset("data/daily_prices.parquet")$schema)
 ```{r}
 prices <- arrow::read_parquet("data/daily_prices.parquet")
 metadata <- arrow::read_parquet("data/coin_metadata.parquet")
+metadata <- metadata |>
+  dplyr::mutate(
+    launch_date_parsed = dplyr::coalesce(
+      lubridate::ymd(launch_date, quiet = TRUE),
+      lubridate::mdy(launch_date, quiet = TRUE)
+    )
+  )
+if (anyNA(metadata$launch_date_parsed)) {
+  stop("Some launch dates could not be parsed.")
+}
 categories <- arrow::read_parquet("data/categories.parquet")
 print(categories)
 ```
@@ -39,6 +49,13 @@ metadata |>
     missing_n = sum(is.na(value)),
     missing_pct = mean(is.na(value)) * 100
   )
+```
+
+```{r}
+metadata |>
+  dplyr::arrange(launch_date_parsed) |>
+  dplyr::select(coin_id, coin_name, launch_date, launch_date_parsed) |>
+  print(n = 22)
 ```
 
 ```{r}
