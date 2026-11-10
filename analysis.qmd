@@ -13,7 +13,7 @@ execute:
 library(tidyverse)
 library(arrow)
 ```
-`''
+```{r}
 arrow::open_dataset("data/daily_prices.parquet")
 
 ```{r}
@@ -21,3 +21,8 @@ arrow::open_dataset("data/daily_prices.parquet") |>
   dplyr::slice_sample(n = 10) |>
   dplyr::collect()
 ```
+
+---
+title: "Crypto Markets"
+author: "Chloe Mercurio"
+---
