@@ -89,37 +89,42 @@ volume_usd: double</code></pre>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 22 × 7
-   coin_id coin_name    symbol category_id     launch_date consensus description
-   &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      
- 1 btc     Bitcoin      BTC    bitcoin         January 3,… Proof of… "Bitcoin i…
- 2 ltc     Litecoin     LTC    bitcoin         October 7,… proof-of… "Litecoin …
- 3 bch     Bitcoin Cash BCH    bitcoin         August 1, … POW       "Bitcoin C…
- 4 eth     Ethereum     ETH    smart-contract… 2015-07-30  Proof of… "Ethereum …
- 5 bnb     BNB          BNB    smart-contract… July 25, 2… Proof of… "BNB start…
- 6 ada     Cardano      ADA    smart-contract… 2017-09-29  Proof-of… "Cardano i…
- 7 dot     Polkadot     DOT    smart-contract… 2020-08-18  Nominate… "Polkadot …
- 8 link    Chainlink    LINK   smart-contract… September … &lt;NA&gt;      "Chainlink…
- 9 xrp     XRP          XRP    smart-contract… 2013-02-02  Federate… "XRP is a …
-10 usdt    Tether       usdt   stablecoin      2014-10-06  &lt;NA&gt;      "Tether (U…
-# ℹ 12 more rows</code></pre>
+<pre><code># A tibble: 6 × 4
+  category_id             category_name           era_introduced description    
+  &lt;chr&gt;                   &lt;chr&gt;                   &lt;chr&gt;          &lt;chr&gt;          
+1 bitcoin                 Bitcoin                 2009           The original c…
+2 smart-contract-platform Smart Contract Platform 2015           Programmable b…
+3 stablecoin              Stablecoin              2015           Tokens pegged …
+4 defi                    DeFi                    2020           Decentralized …
+5 meme-coin               Meme Coin               2013           Coins driven p…
+6 exchange-token          Exchange Token          2017           Utility tokens…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  field       missing_n missing_pct
+  &lt;chr&gt;           &lt;int&gt;       &lt;dbl&gt;
+1 consensus          12        54.5
+2 description         0         0  
+3 launch_date         0         0  </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
-   date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
-   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1 2018-01-25 bch     1633.       27646023082. $27.65B         246370498.
- 2 2020-11-12 usdt       1.00     18031018656. $18.03B        6690087507.
- 3 2026-03-22 doge       0.0903   13865489901. $13.87B         308072514.
- 4 2025-12-16 bch      546.       10903541429. &lt;NA&gt;            107387793.
- 5 2018-07-04 mkr      554.         554114444. &lt;NA&gt;                 7953.
- 6 2018-02-10 btc     8530.      143796839807. $143.8B        3791122188.
- 7 2026-04-04 eth     2064.      250990077125. $250.99B       1230933254.
- 8 2023-07-02 link       6.53      6528763408. $6.53B           91890111.
- 9 2021-04-13 ftt       55.4      18778814201. $18.78B         279392119.
-10 2021-03-04 ada        1.11     35561960657. &lt;NA&gt;           2190474416.</code></pre>
+   date_raw   coin_id   price_usd market_cap_usd market_cap_str  volume_usd
+   &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
+ 1 2018-09-07 doge        0.00526     610329198. $610.33M         21760248.
+ 2 2024-07-12 dai         1.000      3222581869. $3.22B          271396146.
+ 3 2019-07-09 btc     12579.       224021230976. $224.02B       6677916450.
+ 4 2024-01-17 cro         0.0857     8567517051. $8.57B            8015419.
+ 5 2025-12-26 bnb       834.       114883452516. $114.88B        403647136.
+ 6 2026-03-29 uni         3.35       3351461640. $3.35B           22389168.
+ 7 2024-06-30 ftt         1.42        467297473. $467.3M           7714091.
+ 8 2018-12-03 link        0.286       286475827. $286.48M          1526349.
+ 9 2019-01-20 mkr       446.          446276462. $446.28M            50097.
+10 2021-08-17 doge        0.300     39252312236. $39.25B        4552551694.</code></pre>
 </div>
 </div>
 <div class="cell">

@@ -21,7 +21,24 @@ print(arrow::open_dataset("data/daily_prices.parquet")$schema)
 ```{r}
 prices <- arrow::read_parquet("data/daily_prices.parquet")
 metadata <- arrow::read_parquet("data/coin_metadata.parquet")
-print(metadata)
+categories <- arrow::read_parquet("data/categories.parquet")
+print(categories)
+```
+
+```{r}
+metadata |>
+  dplyr::select(description, launch_date, consensus) |>
+  tidyr::pivot_longer(
+    dplyr::everything(),
+    names_to = "field",
+    values_to = "value",
+    values_transform = list(value = as.character)
+  ) |>
+  dplyr::group_by(field) |>
+  dplyr::summarise(
+    missing_n = sum(is.na(value)),
+    missing_pct = mean(is.na(value)) * 100
+  )
 ```
 
 ```{r}
