@@ -177,16 +177,16 @@ volume_usd: double</code></pre>
 <pre><code># A tibble: 10 × 6
    date_raw   coin_id price_usd market_cap_usd market_cap_str  volume_usd
    &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;                &lt;dbl&gt;
- 1 2023-04-25 cro        0.0692    6915448294. $6.92B           28340282.
- 2 2020-09-06 crv        2.17      2861479278. $2.86B           46275468.
- 3 2020-12-18 comp     160.        1603555272. $1.6B            52495856.
- 4 2024-08-05 crv        0.210      452710001. $452.71M        182625463.
- 5 2019-01-26 xrp        0.312    31170391589. $31.17B          59343250.
- 6 2020-01-31 bnb       18.2       2787687564. $2.79B           50648664.
- 7 2018-09-13 xrp        0.281    28056584487. $28.06B         146849286.
- 8 2026-04-18 eth     2354.      286303488293. $286.3B        3331332252.
- 9 2022-03-30 eth     3389.      402096496205. $402.1B        5340312033.
-10 2025-02-07 aave     237.        3787384865. $3.79B          225948844.</code></pre>
+ 1 2023-07-14 ht          2.74     1368065037. $1.37B            7551119.
+ 2 2024-03-18 crv         0.658    1377186729. $1.38B           73584319.
+ 3 2020-10-22 usdc        1.000    2795272991. $2.8B           152061187.
+ 4 2021-12-30 xrp         0.839   83842148498. $83.84B         871197812.
+ 5 2019-05-26 usdt        1.01     3391713417. $3.39B         3599928027.
+ 6 2019-04-07 link        0.577     577427504. $577.43M          6063991.
+ 7 2020-06-13 ht          4.30     2148264485. $2.15B            9616644.
+ 8 2022-11-29 ht          6.98     3489546323. $3.49B           18643604.
+ 9 2021-12-04 usdc        1.00    39865514370. $39.87B        4704341036.
+10 2021-02-18 ltc       227.      15189925342. $15.19B        1787633972.</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -312,7 +312,7 @@ volume_usd: double</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/chloemercurio7\.github\.io\/R4DS-7\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
