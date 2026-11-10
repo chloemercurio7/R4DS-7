@@ -102,20 +102,27 @@ crypto |>
 #| message: false
 
 crypto_market_cap <- crypto |>
-  group_by(date) |>
+  group_by(date, category_name) |>
   summarise(
-    total_market_cap = sum(market_cap_usd, na.rm = TRUE)
+    category_market_cap = sum(market_cap_usd, na.rm = TRUE),
+    .groups = "drop"
   ) |>
+  group_by(date) |>
   mutate(
-    market_cap_trillions = total_market_cap / 1e12
+    market_cap_share = category_market_cap / sum(category_market_cap)
   )
 
-ggplot(crypto_market_cap, aes(x = date, y = market_cap_trillions)) +
-  geom_line() +
+ggplot(
+  crypto_market_cap,
+  aes(x = date, y = market_cap_share, fill = category_name)
+) +
+  geom_area() +
+  scale_y_continuous(labels = scales::label_percent()) +
   labs(
-    title = "Total Cryptocurrency Market Capitalization",
+    title = "Cryptocurrency Market-Cap Share by Category",
     x = "Date",
-    y = "Market Cap (Trillions of Dollars)"
+    y = "Share of Total Market Cap",
+    fill = "Category"
   ) +
   theme_minimal()
 ```
