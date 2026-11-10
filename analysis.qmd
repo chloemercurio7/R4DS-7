@@ -19,6 +19,8 @@ print(arrow::open_dataset("data/daily_prices.parquet")$schema)
 ```
 
 ```{r}
+#| cache: true
+
 prices <- arrow::read_parquet("data/daily_prices.parquet")
 metadata <- arrow::read_parquet("data/coin_metadata.parquet")
 categories <- arrow::read_parquet("data/categories.parquet")
