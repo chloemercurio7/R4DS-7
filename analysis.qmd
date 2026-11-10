@@ -60,6 +60,12 @@ metadata |>
 
 ```{r}
 prices |>
+  dplyr::left_join(metadata, by = "coin_id") |>
+  print()
+```
+
+```{r}
+prices |>
   dplyr::filter(coin_id == "btc") |>
   dplyr::mutate(date = lubridate::ymd(date_raw)) |>
   ggplot(aes(x = date, y = price_usd)) +
